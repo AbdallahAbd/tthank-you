@@ -5,112 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Love Letter 💌</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffb3c6, #ffd1dc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-    /* Envelope Container */
-    .envelope-container {
-        position: relative;
-        width: 200px;
-        height: 120px;
-        cursor: pointer;
-    }
+/* Envelope Container */
+.envelope-container {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    cursor: pointer;
+    perspective: 1000px;
+}
 
-    /* Envelope front */
-    .envelope {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: #ff4b6e;
-        border-radius: 10px;
-        transform-origin: top;
-        transition: transform 1s ease-in-out;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 24px;
-    }
+.envelope {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ff4b6e;
+    border-radius: 15px;
+    transform-origin: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    transition: transform 1s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
-    /* Letter */
-    .letter {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        border-radius: 10px;
-        padding: 20px;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: all 1s ease-in-out 1s;
-        overflow-y: auto;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        max-height: 70vh;
-    }
+.letter {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 1s ease-in-out 1s;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-height: 70vh;
+}
 
-    h1 { 
-        color: #ff4b6e;
-        text-align: center; 
-        margin-bottom: 15px; 
-        font-size: 24px; 
-    }
+h1 { 
+    color: #ff4b6e;
+    text-align: center; 
+    margin-bottom: 15px; 
+    font-size: 22px; 
+}
 
-    p {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #555;
-        white-space: pre-wrap;
-    }
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    white-space: pre-wrap;
+}
 
-    button {
-        display: block;
-        margin: 15px auto 0 auto;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        background: #ff4b6e;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+button {
+    display: block;
+    margin: 15px auto 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4b6e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    button:hover {
-        background: #ff1e50;
-        transform: scale(1.05);
-    }
+button:hover {
+    background: #ff1e50;
+    transform: scale(1.05);
+}
 
-    /* Hearts animation */
-    .heart {
-        position: absolute;
-        color: #ff4b6e;
-        font-size: 20px;
-        animation: floatUp 4s linear infinite;
-    }
+/* Hearts animation */
+.heart {
+    position: absolute;
+    color: #ff4b6e;
+    font-size: 20px;
+    animation: floatUp 4s linear infinite;
+}
 
-    @keyframes floatUp {
-        0% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(-800px); opacity: 0; }
-    }
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-300px) rotate(180deg); }
+    100% { transform: translateY(-600px) rotate(360deg); opacity: 0; }
+}
 </style>
 </head>
 <body>
 
 <div class="envelope-container" onclick="openLetter()">
-    <div class="envelope">💌 Click Me!</div>
+    <div class="envelope" id="envelope">💌 Click Me!</div>
     <div class="letter" id="letter">
         <h1>To My Love 💖</h1>
         <p>
-I’ve been thinking a lot about us lately… about how everything started on 11/10/2020, in the most random way possible a simple Valorant game...
+I’ve been thinking a lot about us lately… about how everything started on 11/10/2020, in the most random way possible a simple Valorant game. It still amazes me how something so ordinary turned into something so important in my life.
+
+From that day, we started talking… and somehow, it became every single day. Not because we had to, but because we wanted to. And now I can’t even imagine my days without our conversations. You became part of my routine in the best way possible.
+
+I finish work every day just wanting to talk to you. No matter how my day went stressful, boring, exhausting the only thing I really look forward to is telling you about it and hearing about yours. You’re the person I want to share the smallest details with. The random thoughts. The little annoyances. The funny moments. Everything feels more meaningful when I know I’ll tell you about it later.
+
+And honestly? I hate playing without you. Games don’t feel the same. Even when we played It Takes Two, I didn’t love it just because it was a good game I loved it because I was playing it with you. Every level, every laugh, every little fail… it was fun because it was us. You make everything better just by being there.
+
+You have this way of fixing my mood without even trying. When I’m upset, stressed, or just not feeling okay, you somehow make it lighter. Sometimes it’s your jokes. Sometimes it’s your voice. Sometimes it’s just you being you. You’re genuinely one of the funniest people I know, and you don’t even realize how much your laugh can change my whole day.
+
+And I care about you. More than I probably say out loud. I care about how your day goes. I care about what makes you smile. I care about what makes you tired. I care about your dreams, your thoughts, your feelings. You became someone I protect in my heart.
+
+I’m still waiting for the day I get to taste something you baked. I don’t just want to hear about it I want to be there, teasing you while you bake, stealing a piece before it’s ready. I want to see you in real life, not through a screen. I want to see your expressions, your smile, the way you look at things. I want to experience you in real life the same way I experience you in my heart every day.
+
+You’re not just someone I met in a game anymore. You’re my favorite notification. My favorite teammate. My favorite part of my day.
+
+And I’m really, really happy that out of all the random queues in the world… it was you.
+
+— Aboudd 💕
         </p>
         <button onclick="surprise()">Click for Surprise 🎁</button>
     </div>
@@ -118,13 +137,11 @@ I’ve been thinking a lot about us lately… about how everything started on 11
 
 <script>
 function openLetter() {
-    const envelope = document.querySelector('.envelope');
+    const envelope = document.getElementById('envelope');
     const letter = document.getElementById('letter');
 
-    // Animate envelope opening
     envelope.style.transform = 'rotateX(180deg)';
     
-    // Show letter after animation
     setTimeout(() => {
         letter.style.opacity = 1;
         letter.style.transform = 'translateY(0)';
@@ -132,10 +149,10 @@ function openLetter() {
 }
 
 function surprise() {
-    alert("I LOVE YOU SO MUCH ❤️🥰");
+    alert("Thank you so much ❤️🥰");
 }
 
-// Floating hearts animation
+// Floating hearts
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -145,9 +162,7 @@ function createHeart() {
     heart.style.animationDuration = Math.random() * 2 + 3 + "s";
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 4000);
+    setTimeout(() => { heart.remove(); }, 4000);
 }
 
 setInterval(createHeart, 400);
